@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senderismo - RevientaPatas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <header class="bg-primary text-white text-center py-3">
+        <h1>RevientaPatas, tu web de senderismo</h1>
+        <nav class="nav justify-content-center">
+            <a href="#" class="nav-link text-white">Tienda</a>
+            <a href="#" class="nav-link text-white">Rutas</a>
+            <a href="#" class="nav-link text-white">Info</a>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <section class="text-center mb-5">
+            <h2>Rutas completadas</h2>
+            <div class="row g-4">
+                <article class="col-md-4">
+                    <div class="card h-100">
+                        <img src="mordor.jpg" class="card-img-top" alt="Ruta de Mordor" style="max-height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Mordor</h5>
+                            <p class="card-text">Donde Frodo perdió las chanclas.</p>
+                            <button type="button" class="btn btn-primary">Ver ruta</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-md-4">
+                    <div class="card h-100">
+                        <img src="forrest.jpg" class="card-img-top" alt="Ruta de América Profunda" style="max-height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">América Profunda</h5>
+                            <p class="card-text">Siguiendo las huellas de Forrest Gump.</p>
+                            <button type="button" class="btn btn-primary">Ver ruta</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-md-4">
+                    <div class="card h-100">
+                        <img src="dinosaurio.jpg" class="card-img-top" alt="Ruta del Parque Jurásico" style="max-height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Parque Jurásico</h5>
+                            <p class="card-text">De paseo con los peques en el parque.</p>
+                            <button type="button" class="btn btn-primary">Ver ruta</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="row mb-5">
+            <div class="col-md-6">
+                <h2 class="text-center">¿Quiénes somos?</h2>
+                <p>Somos un grupo de amigos apasionados por la naturaleza y la aventura. Nuestro objetivo es descubrir nuevos paisajes y disfrutar de la tranquilidad de los senderos.</p>
+                <h3 class="text-center">¿Qué hacemos?</h3>
+                <ul>
+                    <li>Caminatas semanales y mensuales.</li>
+                    <li>Rutas temáticas (amaneceres, senderismo nocturno, o rutas históricas).</li>
+                    <li>Talleres sobre orientación y seguridad en la montaña.</li>
+                    <li>Excursiones a parques naturales y reservas ecológicas.</li>
+                </ul>
+                <p><strong>Lema:</strong> <i>"Un paso a la vez... ¡o dos si llevas prisa! Juntos llegamos más lejos (y quemamos más calorías)."</i></p>
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-center">Nuestros Miembros</h3>
+                <img src="amigos.jpg" alt="Foto de los miembros de RevientaPatas" class="img-fluid rounded">
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="text-center">Consultas/Sugerencias</h2>
+            <div class="bg-info p-4 rounded mx-auto" style="max-width: 500px;">
+                <form id="contactForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" placeholder="123456789" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Escriba aquí su sugerencia</label>
+                        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+                <div id="spinner" class="text-center mt-3 d-none">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Enviando...</span>
+                    </div>
+                </div>
+                <h3 id="resultado" class="text-center mt-3 d-none">Mensaje enviado</h3>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white text-center py-3">
+        <h3>Contactos</h3>
+        <p>Email: email@email.com</p>
+        <p>Teléfono: (+34) 123 456 789</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const spinner = document.getElementById('spinner');
+            const resultado = document.getElementById('resultado');
+
+            spinner.classList.remove('d-none');
+
+            
+            await new Promise(resolve => setTimeout(resolve, 4000));
+
+            
+            e.target.reset();
+
+            spinner.classList.add('d-none');
+            resultado.classList.remove('d-none');
+
+            setTimeout(() => {
+                resultado.classList.add('d-none');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
